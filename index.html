@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="components">
+<head>
+    <meta charset="UTF-8">
+
+    <title>offlineCacheFactory</title>
+</head>
+<body ng-controller="mainCtrl">
+    <div>online: {{status}}</div>
+
+
+    <button ng-click="send()">Send request</button>
+    <div> response get: {{responseGet}} </div>
+    <div> response post: {{responsePost}} </div>
+
+    <div> response get async: {{responseGetAsync}} </div>
+    <div> response post async: {{responsePostAsync}} </div>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/offline/offline.js"></script>
+    <script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/connectionStatus/connectionStatus.js"></script>
+    <script type="text/javascript" src="bower_components/localStorageCache/localStorageCache.js"></script>
+    <script type="text/javascript" src="bower_components/indexedDbCache/indexedDbCache.js"></script>
+    <script type="text/javascript" src="module.js"></script>
+    <script type="text/javascript" src="offlineCache.js"></script>
+
+    <script type="text/javascript" src="httpWrapper.js"></script>
+    <!--<script type="text/javascript" src="httpDecorator.js"></script>-->
+
+
+</body>
+</html>

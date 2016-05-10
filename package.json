@@ -1,0 +1,14 @@
+﻿{
+  "name": "lk-new",
+  "version": "1.0.0",
+  "description": "npm пакеты проекта",
+ 
+  "author": "",
+  
+  "devDependencies": {
+    "express": ""
+  },
+  "dependencies": {
+   
+  }
+}
