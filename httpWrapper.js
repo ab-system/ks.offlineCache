@@ -62,8 +62,12 @@ angular
                             config.cache = null;
                             $http(config)
                                 .then(function (result) {
+                                    var url = config.url;
+                                    if(config.params) {
+                                        url += '?' + $.param(config.params);
+                                    }
                                     //indexedDb "не любит" result по этому JSON.stringify
-                                    cache.put(config.url, JSON.stringify(result))
+                                    cache.put(url, JSON.stringify(result))
                                         .then(function(){
                                             defer.resolve(result);
                                         })
