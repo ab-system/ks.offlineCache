@@ -28,9 +28,18 @@ angular
             return promise;
         }
 
-
         function wrapperCtor($http) {
-            var me = $http;
+            var me = function(requestConfig) {
+                switch (requestConfig.method) {
+                    case 'GET':
+                        return me.get(requestConfig.url, requestConfig);
+                    case 'POST':
+                        return me.post(requestConfig.url, requestConfig.data, requestConfig);
+                        break;
+
+                }
+                return $http(requestConfig);
+            }
 
             function isPromise(value) {
                 return value && angular.isFunction(value.then);
@@ -114,7 +123,6 @@ angular
             };
 
             me.get = function (url, config) {
-
                 config = angular.extend({}, config || {}, {
                     method: 'get',
                     url: url

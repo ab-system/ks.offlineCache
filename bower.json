@@ -14,13 +14,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4",
+    "angular": "~1.5",
+    "angular-resource": "~1.5",
     "ks.connectionStatus": "https://github.com/ab-system/ks.connectionStatus.git#2e4df1d04133d98fe2578f5f25852ba789e2cbf1",
     "ks.localStorageCache": "https://github.com/ab-system/ks.localStorageCache.git#7866524bd9e99e3f70ed030a8e31de2c4e8e4e8d",
     "ks.indexedDbCache": "https://github.com/ab-system/ks.indexedDbCache.git#6d2b5c440dcc64674f8e41b61d47399848dafe1f"
-  },
-
-  "resolutions": {
-    "angular": "~1.5"
   }
 }
