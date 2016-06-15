@@ -9,6 +9,24 @@ angular
     .module('offlineCache')
     .factory('httpWrapper', ['$log', '$q', '$cacheFactory', function($log, $q, $cacheFactory) {
 
+        function paramsUrl(config){
+            if(!config.params) {
+                return config.url;
+            }
+
+            var keys = []
+            var params = config.params;
+            angular.forEach(params, function(value, key){ keys.push(key); });
+            function compare (a, b) {
+                if(a < b) return -1;
+                if(a > b) return 1;
+                return 0;
+            }
+            keys = keys.sort(compare);
+            var result = '';
+            angular.forEach(keys, function(key){ result += key + '=' + params[key] + '&' });
+            return config.url + '?' + result.substr(0, result.length - 1);
+        }
 
         function toHttpPromise(promise, config) {
             promise.success = function(fn) {
@@ -67,12 +85,8 @@ angular
                             config.cache = null;
                             $http(config)
                                 .then(function (result) {
-                                    var url = config.url;
-                                    if(config.params) {
-                                        url += '?' + $.param(config.params);
-                                    }
                                     //indexedDb "не любит" result по этому JSON.stringify
-                                    cache.put(url, JSON.stringify(result))
+                                    cache.put(paramsUrl(config), JSON.stringify(result))
                                         .then(function(){
                                             defer.resolve(result);
                                         })
@@ -93,7 +107,7 @@ angular
                     cache = $cacheFactory.get('$http');
                 }
 
-                var cacheResult = cache.get(config.url);
+                var cacheResult = cache.get(paramsUrl(config));
 
                 if (isPromise(cacheResult)) {
                     //кешь асинхронный
