@@ -55,7 +55,12 @@ angular
                 promise
                     .then(function (cacheResult) {
                         if (cacheResult) {
-                            defer.resolve(JSON.parse(cacheResult));
+                              if(typeof(cacheResult) === 'string' ) {
+                                defer.resolve(JSON.parse(cacheResult));
+                            }
+                            else{
+                                defer.resolve(cacheResult);
+                            }
                         }
                         else {
                             var cache = config.cache;
