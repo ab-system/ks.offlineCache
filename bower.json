@@ -18,6 +18,10 @@
     "angular-resource": "~1.5",
     "ks.connectionStatus": "https://github.com/ab-system/ks.connectionStatus.git#2e4df1d04133d98fe2578f5f25852ba789e2cbf1",
     "ks.localStorageCache": "https://github.com/ab-system/ks.localStorageCache.git#7866524bd9e99e3f70ed030a8e31de2c4e8e4e8d",
-    "ks.indexedDbCache": "https://github.com/ab-system/ks.indexedDbCache.git#159ec4f2e1a12acfd9e99f48309665d44b4a561f"
+    "ks.indexedDbCache": "https://github.com/ab-system/ks.indexedDbCache.git#04d7965"
+  },
+
+  "resolutions": {
+    "angular": "~1.5"
   }
 }
